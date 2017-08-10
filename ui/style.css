@@ -1,10 +1,6 @@
 body {
     font-family: sans-serif;
-    background-color: lightgrey;
-    margin-top: 75px;
-}
-
-.center {
+    /*<!--background-color: lightgrey;*/
     text-align: center;
 }
 

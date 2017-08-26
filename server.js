@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg').pool;
+var pool = require('pg').pool;
 var pool = new Pool(config);
 
 var config = {

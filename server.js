@@ -15,18 +15,39 @@ password: process.env.DB_PASSWORD
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-  title: 'article-one  | vishal',
-  heading: 'Article One',
-  date: 'Aug 5,2017',
-  content:  `  <p>
-         'This is my first content,This is my first content,This is my first content,This is my first content.This is my first content'
-              </p>
-              <p>
-         'This is my first content,This is my first content,This is my first content,This is my first content.This is my first content'
-              </p>`
-};
-
+var articles = {
+     'article-one': {
+     title:   'Article one| Vishal Shetty',
+     heading: 'Article one',
+     date:    'August 10, 2016',
+     content: `
+        <p>
+             This is the content for my first Awesome article.This is the content for my first Awesome article.This is the content for my first.Awesome article.This is the content for my first Awesome articleThis is the content for my first Awesome article.This is the content for my first Awesome article.
+         </p>
+         <p>
+             This is the content for my first Awesome article.This is the content for my first Awesome article.This is the content for my first.Awesome article.This is the content for my first Awesome articleThis is the content for my first Awesome article.This is the content for my first Awesome article.
+         </p>
+         <p>
+             This is the content for my first Awesome article.This is the content for my first Awesome article.This is the content for my first.Awesome article.This is the content for my first Awesome articleThis is the content for my first Awesome article.This is the content for my first Awesome article.
+         </p>`
+ },
+     'article-two': {title:   'Article Two| Vishal Shetty',
+     heading: 'Article Two',
+     date:    'August 11, 2016',
+     content: `
+        <p>
+             This is the content for my Secomd Awesome article.
+         </p>`
+ },
+     'article-three': {title:   'Article one| Vishal Shetty',
+     heading: 'Article Three',
+     date:    'August 13, 2016',
+     content: `
+        <p>
+             This is the content for my Third Awesome article.
+         </p>`
+ }
+ };
 function createTemplate (data)
 {
 var title=data.title;

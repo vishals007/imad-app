@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool= require('pg').Pool;
-
+var pool= new pool(config);
 
 var config = {
    user: 'vishal14shetty',
@@ -15,6 +15,18 @@ password: process.env.DB_PASSWORD
 
 var app = express();
 app.use(morgan('combined'));
+
+var content = {
+  title: 'article-one  | vishal',
+  heading: 'Article One',
+  date: 'Aug 5,2017',
+  content:  `  <p>
+         'This is my first content,This is my first content,This is my first content,This is my first content.This is my first content'
+              </p>
+              <p>
+         'This is my first content,This is my first content,This is my first content,This is my first content.This is my first content'
+              </p>`
+};
 
 function createTemplate (data)
 {
@@ -150,5 +162,5 @@ res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 
 var port = 80;
 app.listen(port, function () {
-console.log('IMAD course app listening on port ${port}!');
+console.log('IMAD course app listening on port ${port}!);
 });

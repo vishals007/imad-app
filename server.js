@@ -2,13 +2,13 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool= require('pg').Pool;
+var pool= new pool(config);
 
-var config=
-{
-user: 'vishal14shetty',
-database:'vishal14shetty',
-host: 'db.imad.hasura-app.io',
-port: '5432',
+var config = {
+   user: 'vishal14shetty',
+   database:'vishal14shetty',
+   host: 'db.imad.hasura-app.io',
+   port: '5432',
 password: process.env.DB_PASSWORD
 
 };
@@ -149,7 +149,6 @@ res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
 var port = 80;
-app.listen(port, function ()
-{
-console.log(IMAD course app listening on port ${port}!);
+app.listen(port, function () {
+console.log('IMAD course app listening on port ${port}!');
 });

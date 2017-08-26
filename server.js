@@ -15,7 +15,7 @@ password: process.env.DB_PASSWORD
 var app = express();
 app.use(morgan('combined'));
 
-var articleone = {
+var articleOne = {
   title: 'article-one  | vishal',
   heading: 'Article One',
   date: 'Aug 5,2017',

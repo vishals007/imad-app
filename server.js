@@ -15,7 +15,7 @@ password: process.env.DB_PASSWORD
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
+/*var articles = {
     'article-one': {
     title:   'Article one| Vishal Shetty',
     heading: 'Article one',
@@ -47,7 +47,7 @@ var articles = {
             This is the content for my Third Awesome article.
         </p>`
 }
-};
+};*/
 
 function createTemplate(data) {
      var title =data.tile;

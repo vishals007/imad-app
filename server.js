@@ -145,7 +145,7 @@ counter=counter+1;
 res.send(counter.toString());
 });
 
-var names=[];
+var names = [];
 app.get('/submit-name:name', function (req, res) {
 // URL:/submit-name?name=xxxxx
 // Get the name from the request

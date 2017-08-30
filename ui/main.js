@@ -24,6 +24,7 @@ button.onclick = function () {
   request.send(null);
   
 };
+
 //submit name
 var nameInput = document.getElementById('name');
 var name = nameInput.value;

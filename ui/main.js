@@ -4,7 +4,7 @@ var button = documnet.getElementById('counter');
 
 button.onclick = function () {
   
-  //Make a request to the counter endpoint
+  //create a request object
   var request = new XMLHttpRequest();
   
   //capture the response and store it in a variablle 
@@ -18,7 +18,9 @@ button.onclick = function () {
           }
       }
       //not done yet
-  
-  //Render the variable in the correct span
   };
+  //Make the request
+  request.open('GET','http://vishal14shetty.imad.hasura-app.io/counter',true);
+  request.send(null);
+  
 };

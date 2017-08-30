@@ -93,7 +93,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-function hash (input,salt){
+function hash (input,salt) {
     //how do we create a hash
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
     return ["pbkdf2","10000",salt,hashed.toString('hex')].join('$');
@@ -123,32 +123,28 @@ app.post('/create-user',function(req,res){
 });
 
 var pool= new Pool(config);
-app.get('/test-db', function (req, res)
-{
-// make a select request
-// return a response with the results
-pool.query("SELECT * FROM test", function(err, result) {
-if (err) {
-         res.status(500).send (err.toString());
+app.get('/test-db', function (req, res) {
+   // make a select request
+  // return a response with the results
+  pool.query("SELECT * FROM test", function(err, result) {
+     if (err) {
+        res.status(500).send (err.toString());
      } else { 
-         
-         res.send(JSON.stringify(result.rows));
+        res.send(JSON.stringify(result.rows));
      }
-    
-   });
+  });
 });
 
 var counter=0;
-app.get('/counter', function (req, res)
-{
+app.get('/counter', function (req, res) {
 counter=counter+1;
 res.send(counter.toString());
 });
 
 var names = [];
 app.get('/submit-name', function (req, res) {
-// URL:/submit-name?name=xxxxx
-// Get the name from the request
+  // URL:/submit-name?name=xxxxx
+ // Get the name from the request
 var name= req.query.name; //ToDO
 
 names.push(name);
@@ -158,23 +154,18 @@ res.send(JSON.stringify(names)); //ToDo
 
 var articles = [];
 app.get('/articles/:articleName', function (req, res) {
-// articleName==article-one
-// articles[articleName]= { }content object of article-one
+   //articleName==article-one
+   //articles[articleName]= { }content object of article-one
 
-//'SELECT * FROM article WHERE title='article-one' 
-pool.query("SELECT * FROM article WHERE title=$1", [req.params.articleName], function (err,result) {
-if(err)
-{
-res.status(500).send (err.toString());
-}
-else
-{
-if (result.rows.length===0)
-{
-res.status(404).send('Article Not Found'); 
-}
-else
-{
+   //'SELECT * FROM article WHERE title='article-one' 
+   pool.query("SELECT * FROM article WHERE title=$1", [req.params.articleName], function (err,result) {
+     if(err) {
+        res.status(500).send (err.toString());
+     } else {
+     if (result.rows.length===0)
+     {
+        res.status(404).send('Article Not Found'); 
+     } else {
 var articleData=result.rows[0];
 res.send(createTemplate(articleData));
 }

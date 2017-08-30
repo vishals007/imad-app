@@ -146,17 +146,17 @@ res.send(counter.toString());
 });
 
 var names = [];
-app.get('/submit-name:name', function (req, res) {
+app.get('/submit-name', function (req, res) {
 // URL:/submit-name?name=xxxxx
 // Get the name from the request
-var name= req.params.name; //ToDO
+var name= req.query.name; //ToDO
 
 names.push(name);
 //JSON:JavaScript Object Notation
 res.send(JSON.stringify(names)); //ToDo
 });
 
-var articles=[];
+var articles = [];
 app.get('/articles/:articleName', function (req, res) {
 // articleName==article-one
 // articles[articleName]= { }content object of article-one

@@ -19,7 +19,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 
 /*var articles = {
-    'article-one': {
+    'article-one'  : {
     title:   'Article one| Vishal Shetty',
     heading: 'Article one',
     date:    'August 10, 2016',
@@ -34,7 +34,7 @@ app.use(bodyParser.json());
             This is the content for my first Awesome article.This is the content for my first Awesome article.This is the content for my first.Awesome article.This is the content for my first Awesome articleThis is the content for my first Awesome article.This is the content for my first Awesome article.
         </p>`
 },
-    'article-two': {title:   'Article Two| Vishal Shetty',
+    'article-two'  : {title:   'Article Two| Vishal Shetty',
     heading: 'Article Two',
     date:    'August 11, 2016',
     content: `
@@ -106,10 +106,11 @@ app.get('/hash/:input',function(req,res) {
 
 app.post('/create-user',function(req,res){
      //username,password
+     //{"username": "vishal", "password": "password"}
      //JSON
      var username=req.body.username;
      var password=req.body.password;
-     var salt = crypto.getRandom.Bytes(128).toString('hex');
+     var salt = crypto.Random.Bytes(128).toString('hex');
      var dbString = hash(password,salt);
      pool.querry('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbString],function(err,result) {
      if (err) {
